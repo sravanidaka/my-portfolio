@@ -1,0 +1,219 @@
+.achievements-container {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  transition: var(--transition);
+}
+
+.achievements-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.achievement-card {
+  background: var(--card-bg);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: var(--transition);
+}
+
+.achievement-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.achievement-card:hover::after {
+  opacity: 1;
+}
+
+.achievement-card:hover {
+  box-shadow: 0 15px 40px var(--card-shadow);
+  transform: translateY(-5px);
+}
+
+.achievement-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-card:hover .achievement-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  color: white;
+  transition: var(--transition);
+}
+
+.achievement-year {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-title {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet - 2 columns */
+@media (max-width: 968px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .achievement-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .achievement-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.2rem;
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 768px) {
+  .achievements-container {
+    padding: 6rem 1rem 2rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .achievement-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .achievement-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 1rem;
+  }
+
+  .achievement-icon {
+    font-size: 1.8rem;
+  }
+
+  .achievement-title {
+    font-size: 1.1rem;
+  }
+
+  .achievement-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .achievement-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .achievement-icon {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,137 @@
+.education-container {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.education-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.education-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 2rem;
+  width: 15px;
+  height: 15px;
+  background: #667eea;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #667eea;
+}
+
+.education-year {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.education-details {
+  margin-top: 0.5rem;
+}
+
+.education-institution {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.education-degree {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.education-cgpa {
+  font-size: 1rem;
+  color: #667eea;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .education-container {
+    padding: 6rem 1rem 2rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .education-timeline {
+    padding-left: 1.5rem;
+  }
+
+  .education-item {
+    padding: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .education-item::before {
+    left: -1rem;
+  }
+
+  .education-institution {
+    font-size: 1.1rem;
+  }
+
+  .education-degree {
+    font-size: 1rem;
+  }
+}
+
