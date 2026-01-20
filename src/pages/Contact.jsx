@@ -1,54 +1,89 @@
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { useState } from 'react';
-import './Contact.css';
+import { motion } from "framer-motion";
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
+import { useState } from "react";
+
+const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can add form submission logic here
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setStatus("loading");
+    setError("");
+    setSuccess("");
+
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+    };
+
+    try {
+      const response = await fetch(`${API_BASE}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setError(
+          data.error || "Unable to send your message. Please try again."
+        );
+        setStatus("error");
+        return;
+      }
+
+      setSuccess("Thank you! Your message has been sent.");
+      setFormData({ name: "", email: "", message: "" });
+      setStatus("success");
+    } catch (err) {
+      setError("Network error. Please try again.");
+      setStatus("error");
+    }
   };
 
   const contactInfo = [
     {
       icon: <FaEnvelope />,
-      label: 'Email',
-      value: 'Sravanidaka27@gmail.com',
-      link: 'mailto:Sravanidaka27@gmail.com'
+      label: "Email",
+      value: "Sravanidaka27@gmail.com",
+      link: "mailto:Sravanidaka27@gmail.com",
     },
-    {
-      icon: <FaPhone />,
-      label: 'Phone',
-      value: '+91 9346882313',
-      link: 'tel:+919346882313'
-    },
+    // {
+    //   icon: <FaPhone />,
+    //   label: "Phone",
+    //   value: "+91 9346882313",
+    //   link: "tel:+919346882313",
+    // },
     {
       icon: <FaLinkedin />,
-      label: 'LinkedIn',
-      value: 'sravaniddaka2709',
-      link: 'https://www.linkedin.com/in/sravaniddaka2709'
+      label: "LinkedIn",
+      value: "sravaniddaka2709",
+      link: "https://www.linkedin.com/in/sravaniddaka2709",
     },
     {
       icon: <FaGithub />,
-      label: 'GitHub',
-      value: 'sravanidaka',
-      link: 'https://github.com/sravanidaka'
-    }
+      label: "GitHub",
+      value: "sravanidaka",
+      link: "https://github.com/sravanidaka",
+    },
   ];
 
   const containerVariants = {
@@ -56,14 +91,14 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -96,8 +131,10 @@ const Contact = () => {
                 <motion.a
                   key={index}
                   href={info.link}
-                  target={info.link.startsWith('http') ? '_blank' : '_self'}
-                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                  target={info.link.startsWith("http") ? "_blank" : "_self"}
+                  rel={
+                    info.link.startsWith("http") ? "noopener noreferrer" : ""
+                  }
                   className="contact-item"
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, x: 10 }}
@@ -161,9 +198,20 @@ const Contact = () => {
                 className="submit-btn"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                disabled={status === "loading"}
               >
-                Send Message
+                {status === "loading" ? "Sending..." : "Send Message"}
               </motion.button>
+              {error && (
+                <p style={{ color: "#f5576c", marginTop: "0.75rem" }}>
+                  {error}
+                </p>
+              )}
+              {success && (
+                <p style={{ color: "#38ef7d", marginTop: "0.75rem" }}>
+                  {success}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
@@ -173,4 +221,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

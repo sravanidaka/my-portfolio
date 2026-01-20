@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion';
-import myPhoto from '../assets/my-photo.jpeg';
-import '../App.css';
+import { motion } from "framer-motion";
+import myPhoto from "../assets/my-photo.jpeg";
 
 const About = () => {
   return (
@@ -13,7 +12,7 @@ const About = () => {
       >
         About Me
       </motion.h1>
-      
+
       <div className="about-wrapper">
         <motion.div
           className="about-left"
@@ -45,10 +44,21 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <p>
-              I am an enthusiastic ECE undergraduate at KL University with a strong foundation in Computer Communication and emerging 5G technologies. Currently, I am working as a Full-Stack Developer Intern at Net Pulse Innovation S IT Solutions Pvt. Ltd., where I build and enhance web applications using ReactJS and Node.js, particularly focusing on an Asset Management System.
+              I am a Frontend React.js Developer at Greenlanter IT Solutions,
+              specializing in building responsive and dynamic web applications.
+              I bring a unique blend of technical expertise in electronics and
+              software development. My journey in web development has equipped
+              me with hands-on experience in React.js, Node.js, and modern
+              JavaScript frameworks.
             </p>
             <p>
-              My technical journey has strengthened my skills in wireless communication systems, frontend and backend development, project coordination, and problem-solving. I am passionate about developing efficient, user-centric solutions and collaborating with cross-functional teams. I continuously strive to learn new technologies, improve my capabilities, and contribute meaningfully to impactful engineering and software projects.
+              Previously, I worked as a Full-Stack Developer Intern at Net Pulse
+              Innovation IT Solutions, where I developed an Asset Management
+              System from the ground up. My passion lies in creating
+              user-centric, efficient solutions with clean code and modern UI/UX
+              principles. I thrive in collaborative environments and
+              continuously seek to expand my knowledge in frontend technologies,
+              performance optimization, and agile development practices.
             </p>
           </motion.div>
         </motion.div>
@@ -58,4 +68,3 @@ const About = () => {
 };
 
 export default About;
-

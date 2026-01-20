@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import './Navbar.css';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/skills', label: 'Skills' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/education', label: 'Education' },
-    { path: '/certificates', label: 'Certificates' },
-    { path: '/achievements', label: 'Achievements' },
-    { path: '/contact', label: 'Contact' },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/skills", label: "Skills" },
+    { path: "/projects", label: "Projects" },
+    { path: "/education", label: "Education" },
+    { path: "/certificates", label: "Certificates" },
+    { path: "/achievements", label: "Achievements" },
+    { path: "/contact", label: "Contact" },
   ];
 
   const toggleMenu = () => {
@@ -27,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav 
+    <motion.nav
       className="navbar"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -42,12 +41,14 @@ const Navbar = () => {
             SRAVANI DAKA
           </motion.span>
         </Link>
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
           {navItems.map((item) => (
             <li key={item.path} className="nav-item">
               <Link
                 to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                className={`nav-link ${
+                  location.pathname === item.path ? "active" : ""
+                }`}
                 onClick={closeMenu}
               >
                 {item.label}
@@ -55,7 +56,10 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div className={`nav-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <div
+          className={`nav-toggle ${isMenuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -66,4 +70,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

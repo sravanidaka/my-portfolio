@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
-import { FaPalette, FaMoon, FaSun, FaLeaf, FaFire, FaWater } from 'react-icons/fa';
-import './ThemeSwitcher.css';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import {
+  FaPalette,
+  FaMoon,
+  FaSun,
+  FaLeaf,
+  FaFire,
+  FaWater,
+} from "react-icons/fa";
 
 const ThemeSwitcher = () => {
   const { theme, changeTheme } = useTheme();
@@ -10,40 +16,40 @@ const ThemeSwitcher = () => {
 
   const themes = [
     {
-      id: 'default',
-      name: 'Default',
+      id: "default",
+      name: "Default",
       icon: <FaPalette />,
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      description: 'Original Theme'
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      description: "Original Theme",
     },
     {
-      id: 'dark',
-      name: 'Dark',
+      id: "dark",
+      name: "Dark",
       icon: <FaMoon />,
-      gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-      description: 'Dark Mode'
+      gradient: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+      description: "Dark Mode",
     },
     {
-      id: 'ocean',
-      name: 'Ocean',
+      id: "ocean",
+      name: "Ocean",
       icon: <FaWater />,
-      gradient: 'linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)',
-      description: 'Ocean Blue'
+      gradient: "linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)",
+      description: "Ocean Blue",
     },
     {
-      id: 'forest',
-      name: 'Forest',
+      id: "forest",
+      name: "Forest",
       icon: <FaLeaf />,
-      gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-      description: 'Nature Green'
+      gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+      description: "Nature Green",
     },
     {
-      id: 'sunset',
-      name: 'Sunset',
+      id: "sunset",
+      name: "Sunset",
       icon: <FaFire />,
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      description: 'Warm Sunset'
-    }
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      description: "Warm Sunset",
+    },
   ];
 
   return (
@@ -75,7 +81,9 @@ const ThemeSwitcher = () => {
               {themes.map((themeOption) => (
                 <motion.button
                   key={themeOption.id}
-                  className={`theme-option ${theme === themeOption.id ? 'active' : ''}`}
+                  className={`theme-option ${
+                    theme === themeOption.id ? "active" : ""
+                  }`}
                   onClick={() => {
                     changeTheme(themeOption.id);
                     setIsOpen(false);
@@ -98,7 +106,7 @@ const ThemeSwitcher = () => {
                       className="theme-check"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 500 }}
+                      transition={{ type: "spring", stiffness: 500 }}
                     >
                       ✓
                     </motion.div>
@@ -114,4 +122,3 @@ const ThemeSwitcher = () => {
 };
 
 export default ThemeSwitcher;
-

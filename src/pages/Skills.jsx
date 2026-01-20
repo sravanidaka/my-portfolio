@@ -1,19 +1,18 @@
-import { motion } from 'framer-motion';
-import './Skills.css';
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const technicalSkills = [
-    'C, Java (Basics)',
-    'HTML, CSS, JavaScript, Angular',
-    'OOP, Computer Networks',
-    'MATLAB, MS Excel, MS Word'
+    "C, Java (Basics)",
+    "HTML, CSS, JavaScript, Angular",
+    "OOP, Computer Networks",
+    "MATLAB, MS Excel, MS Word",
   ];
 
   const softSkills = [
-    'Adaptability',
-    'Time Management',
-    'Teamwork',
-    'Creativity'
+    "Adaptability",
+    "Time Management",
+    "Teamwork",
+    "Creativity",
   ];
 
   const containerVariants = {
@@ -21,14 +20,14 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -97,4 +96,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

@@ -1,26 +1,25 @@
-import { motion } from 'framer-motion';
-import './Education.css';
+import { motion } from "framer-motion";
 
 const Education = () => {
   const education = [
     {
-      institution: 'Koneru Lakshmaiah University, Vijayawada',
-      degree: 'B.Tech ECE',
-      cgpa: '8.46 CGPA',
-      period: '2021–2025'
+      institution: "Koneru Lakshmaiah University, Vijayawada",
+      degree: "B.Tech ECE",
+      cgpa: "8.46 CGPA",
+      period: "2021–2025",
     },
     {
-      institution: 'Narayana Junior College, Ongole',
-      degree: 'MPC',
-      cgpa: '905 Marks',
-      period: '2019–2021'
+      institution: "Narayana Junior College, Ongole",
+      degree: "MPC",
+      cgpa: "905 Marks",
+      period: "2019–2021",
     },
     {
-      institution: 'Sri Chaitanya School, Ongole',
-      degree: 'SSC',
-      cgpa: '9.7 CGPA',
-      period: '2018–2019'
-    }
+      institution: "Sri Chaitanya School, Ongole",
+      degree: "SSC",
+      cgpa: "9.7 CGPA",
+      period: "2018–2019",
+    },
   ];
 
   const containerVariants = {
@@ -28,14 +27,14 @@ const Education = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0 }
+    visible: { opacity: 1, x: 0 },
   };
 
   return (
@@ -83,4 +82,3 @@ const Education = () => {
 };
 
 export default Education;
-

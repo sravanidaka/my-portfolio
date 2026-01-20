@@ -1,12 +1,11 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes, FaDownload } from 'react-icons/fa';
-import './PDFViewer.css';
+import { motion, AnimatePresence } from "framer-motion";
+import { FaTimes, FaDownload } from "react-icons/fa";
 
 const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
   const handleDownload = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = fileName || 'certificate.pdf';
+    link.download = fileName || "certificate.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,11 +27,11 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="pdf-modal-header">
-              <h3 className="pdf-modal-title">{fileName || 'Certificate'}</h3>
+              <h3 className="pdf-modal-title">{fileName || "Certificate"}</h3>
               <div className="pdf-modal-actions">
                 <motion.button
                   className="pdf-download-btn"
@@ -58,7 +57,7 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
               <iframe
                 src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=1`}
                 className="pdf-iframe"
-                title={fileName || 'PDF Viewer'}
+                title={fileName || "PDF Viewer"}
                 type="application/pdf"
               />
             </div>
@@ -70,4 +69,3 @@ const PDFViewer = ({ isOpen, onClose, pdfUrl, fileName }) => {
 };
 
 export default PDFViewer;
-

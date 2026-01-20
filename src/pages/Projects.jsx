@@ -1,29 +1,35 @@
-import { motion } from 'framer-motion';
-import './Projects.css';
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
     {
-      icon: '🏷️',
-      title: 'Asset Management System',
-      description: 'A full-stack asset tracking and lifecycle management platform built using React.js, Node.js/Express, and MySQL. Features include authentication, asset assignment, barcode generation, depreciation tracking, and bulk Excel upload.',
-      techStack: ['React.js', 'Node.js', 'MySQL'],
-      githubUrl: 'https://github.com/sravanidaka/asset_management'
+      icon: "🏷️",
+      title: "Asset Management System",
+      description:
+        "A full-stack asset tracking and lifecycle management platform built using React.js, Node.js/Express, and MySQL. Features include authentication, asset assignment, barcode generation, depreciation tracking, and bulk Excel upload.",
+      techStack: ["React.js", "Node.js", "MySQL"],
+      githubUrl: "https://github.com/sravanidaka/asset_management",
     },
     {
-      icon: '🍞',
-      title: 'Greeta Bakery Website',
-      description: 'A fully responsive bakery website created using HTML, CSS, and Bootstrap. Includes a modern product section, gallery, and minimalist UI designed for better user experience and branding.',
-      techStack: ['HTML', 'CSS', 'Bootstrap'],
-      githubUrl: 'https://github.com/sravanidaka/greeta.git'
+      icon: "🍞",
+      title: "Greeta Bakery Website",
+      description:
+        "A fully responsive bakery website created using HTML, CSS, and Bootstrap. Includes a modern product section, gallery, and minimalist UI designed for better user experience and branding.",
+      techStack: ["HTML", "CSS", "Bootstrap"],
+      githubUrl: "https://github.com/sravanidaka/greeta.git",
     },
     {
-      icon: '🦺',
-      title: 'Safety Helmet (Innovative Hardware Project)',
-      description: 'A hardware-based innovative safety system designed to enhance worker protection by integrating sensors and communication modules. Detects hazards, monitors environmental conditions, and ensures real-time alerts to improve workplace safety. Built as a core engineering project during undergraduate studies.',
-      techStack: ['Embedded Sensors', 'Communication Modules', 'Hardware Prototyping'],
-      githubUrl: null
-    }
+      icon: "🦺",
+      title: "Safety Helmet (Innovative Hardware Project)",
+      description:
+        "A hardware-based innovative safety system designed to enhance worker protection by integrating sensors and communication modules. Detects hazards, monitors environmental conditions, and ensures real-time alerts to improve workplace safety. Built as a core engineering project during undergraduate studies.",
+      techStack: [
+        "Embedded Sensors",
+        "Communication Modules",
+        "Hardware Prototyping",
+      ],
+      githubUrl: null,
+    },
   ];
 
   const containerVariants = {
@@ -31,22 +37,22 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -83,7 +89,7 @@ const Projects = () => {
               <div className="project-icon">{project.icon}</div>
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
-              
+
               <div className="project-tech-stack">
                 {project.techStack.map((tech, techIndex) => (
                   <span key={techIndex} className="tech-badge">
@@ -113,4 +119,3 @@ const Projects = () => {
 };
 
 export default Projects;
-

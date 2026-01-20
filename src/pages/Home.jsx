@@ -1,19 +1,17 @@
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import myPhoto from '../assets/my-photo.jpeg';
-import '../App.css';
+import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import myPhoto from "../assets/my-photo.jpeg";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const handleResumeClick = () => {
-    // You can add a link to your resume PDF here
-    alert('Resume will be available soon!');
+    navigate("/resume");
   };
 
   const handleContactClick = () => {
-    navigate('/contact');
+    navigate("/contact");
   };
 
   return (
@@ -33,27 +31,28 @@ const Home = () => {
           >
             SRAVANI DAKA
           </motion.h1>
-          
+
           <motion.h2
             className="home-title"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            ECE Undergraduate | Computer Communication & 5G Technologies
+            Frontend React.js Developer | Greenlanter IT Solutions
           </motion.h2>
-          
+
           <motion.p
             className="home-intro"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            ECE undergraduate specializing in Computer Communication and 5G technologies. 
-            Strong in wireless communication, project coordination, and problem-solving. 
-            Passionate about building innovative and impactful tech solutions.
+            Currently working as a Frontend React.js Developer at Greenlanter IT
+            Solutions, building responsive and dynamic user interfaces.
+            Passionate about creating innovative solutions and delivering
+            high-quality, user-centric digital experiences.
           </motion.p>
-          
+
           <motion.div
             className="home-buttons"
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +76,7 @@ const Home = () => {
               Contact Me
             </motion.button>
           </motion.div>
-          
+
           <motion.div
             className="home-social"
             initial={{ opacity: 0 }}
@@ -129,4 +128,3 @@ const Home = () => {
 };
 
 export default Home;
-
